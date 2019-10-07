@@ -1,0 +1,1 @@
+print("struct and class")

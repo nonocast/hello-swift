@@ -127,4 +127,29 @@ func func1(_ condition: () -> Bool) {
   print(condition())
 }
 
-func1({return false})
+func1 { false }
+
+// 补充一下if let
+let name: String? = "老王"
+let age: Int? = 10
+
+if name != nil, age != nil {
+  print(name! + String(age!)) // 输出:老王10
+}
+
+if let newName = name,
+  let newAge = age {
+  print("\(newName): \(newAge)")
+} else {
+  print("FAILED")
+}
+
+extension String: Error {}
+let gender: Bool? = true
+guard let newGender = gender else {
+  print("此处表示gender为nil")
+  throw "error"
+}
+
+// 从optional转为real value
+print(newGender)
